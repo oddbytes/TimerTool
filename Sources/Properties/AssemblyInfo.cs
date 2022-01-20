@@ -9,11 +9,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("CreativeOS Pro Gamer")]
+[assembly: AssemblyTitle("CreativOS Pro Gamer")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("remotocreativo.comm")]
-[assembly: AssemblyProduct("CreativeOS Pro Gamer")]
+[assembly: AssemblyCompany("remotocreativo.com")]
+[assembly: AssemblyProduct("CreativOS Pro Gamer")]
 [assembly: AssemblyCopyright("Copyright 2022")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
