@@ -9,7 +9,7 @@
 using System;
 using System.Windows.Forms;
 
-namespace TimerTool
+namespace ProGamer
 {
 	/// <summary>
 	/// Class with program entry point.

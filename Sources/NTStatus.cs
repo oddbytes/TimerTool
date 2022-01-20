@@ -8,7 +8,7 @@
  */
 using System;
 
-namespace TimerTool
+namespace ProGamer
 {
 	/// <summary>
 	/// A NT status value.

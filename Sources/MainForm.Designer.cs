@@ -6,7 +6,7 @@
  * 
  * 
  */
-namespace TimerTool
+namespace ProGamer
 {
 	partial class MainForm
 	{
@@ -36,161 +36,197 @@ namespace TimerTool
 		/// </summary>
 		private void InitializeComponent()
 		{
-		    this.components = new System.ComponentModel.Container();
-		    this.timer1 = new System.Windows.Forms.Timer(this.components);
-		    this.InfoGroupBox = new System.Windows.Forms.GroupBox();
-		    this.MaxLabel = new System.Windows.Forms.Label();
-		    this.MinLabel = new System.Windows.Forms.Label();
-		    this.CurrentLabel = new System.Windows.Forms.Label();
-		    this.ModifyGroupBox = new System.Windows.Forms.GroupBox();
-		    this.UnsetTimer = new System.Windows.Forms.Button();
-		    this.SetTimerButton = new System.Windows.Forms.Button();
-		    this.label2 = new System.Windows.Forms.Label();
-		    this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-		    this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
-		    this.InfoGroupBox.SuspendLayout();
-		    this.ModifyGroupBox.SuspendLayout();
-		    ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
-		    this.SuspendLayout();
-		    // 
-		    // timer1
-		    // 
-		    this.timer1.Enabled = true;
-		    this.timer1.Interval = 1000;
-		    this.timer1.Tick += new System.EventHandler(this.Timer1Tick);
-		    // 
-		    // InfoGroupBox
-		    // 
-		    this.InfoGroupBox.Controls.Add(this.MaxLabel);
-		    this.InfoGroupBox.Controls.Add(this.MinLabel);
-		    this.InfoGroupBox.Controls.Add(this.CurrentLabel);
-		    this.InfoGroupBox.Location = new System.Drawing.Point(12, 12);
-		    this.InfoGroupBox.Name = "InfoGroupBox";
-		    this.InfoGroupBox.Size = new System.Drawing.Size(176, 85);
-		    this.InfoGroupBox.TabIndex = 1;
-		    this.InfoGroupBox.TabStop = false;
-		    this.InfoGroupBox.Text = "Timer Info";
-		    // 
-		    // MaxLabel
-		    // 
-		    this.MaxLabel.Location = new System.Drawing.Point(6, 62);
-		    this.MaxLabel.Name = "MaxLabel";
-		    this.MaxLabel.Size = new System.Drawing.Size(100, 20);
-		    this.MaxLabel.TabIndex = 3;
-		    this.MaxLabel.Text = "Max: 0.5 ms";
-		    // 
-		    // MinLabel
-		    // 
-		    this.MinLabel.Location = new System.Drawing.Point(6, 45);
-		    this.MinLabel.Name = "MinLabel";
-		    this.MinLabel.Size = new System.Drawing.Size(100, 15);
-		    this.MinLabel.TabIndex = 2;
-		    this.MinLabel.Text = "Min: 15.6 ms";
-		    // 
-		    // CurrentLabel
-		    // 
-		    this.CurrentLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-		    this.CurrentLabel.Location = new System.Drawing.Point(6, 23);
-		    this.CurrentLabel.Name = "CurrentLabel";
-		    this.CurrentLabel.Size = new System.Drawing.Size(134, 18);
-		    this.CurrentLabel.TabIndex = 1;
-		    this.CurrentLabel.Text = "Current: 1 ms";
-		    // 
-		    // ModifyGroupBox
-		    // 
-		    this.ModifyGroupBox.Controls.Add(this.UnsetTimer);
-		    this.ModifyGroupBox.Controls.Add(this.SetTimerButton);
-		    this.ModifyGroupBox.Controls.Add(this.label2);
-		    this.ModifyGroupBox.Controls.Add(this.numericUpDown2);
-		    this.ModifyGroupBox.Location = new System.Drawing.Point(12, 103);
-		    this.ModifyGroupBox.Name = "ModifyGroupBox";
-		    this.ModifyGroupBox.Size = new System.Drawing.Size(176, 89);
-		    this.ModifyGroupBox.TabIndex = 2;
-		    this.ModifyGroupBox.TabStop = false;
-		    this.ModifyGroupBox.Text = "Modify Timer";
-		    // 
-		    // UnsetTimer
-		    // 
-		    this.UnsetTimer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-		    this.UnsetTimer.Location = new System.Drawing.Point(92, 51);
-		    this.UnsetTimer.Name = "UnsetTimer";
-		    this.UnsetTimer.Size = new System.Drawing.Size(77, 30);
-		    this.UnsetTimer.TabIndex = 7;
-		    this.UnsetTimer.Text = "Unset Timer";
-		    this.UnsetTimer.UseVisualStyleBackColor = true;
-		    this.UnsetTimer.Click += new System.EventHandler(this.UnsetTimerClick);
-		    // 
-		    // SetTimerButton
-		    // 
-		    this.SetTimerButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-		    this.SetTimerButton.Location = new System.Drawing.Point(6, 51);
-		    this.SetTimerButton.Name = "SetTimerButton";
-		    this.SetTimerButton.Size = new System.Drawing.Size(80, 30);
-		    this.SetTimerButton.TabIndex = 6;
-		    this.SetTimerButton.Text = "Set Timer";
-		    this.SetTimerButton.UseVisualStyleBackColor = true;
-		    this.SetTimerButton.Click += new System.EventHandler(this.SetTimerButtonClick);
-		    // 
-		    // label2
-		    // 
-		    this.label2.Location = new System.Drawing.Point(69, 27);
-		    this.label2.Name = "label2";
-		    this.label2.Size = new System.Drawing.Size(100, 18);
-		    this.label2.TabIndex = 5;
-		    this.label2.Text = "ms";
-		    // 
-		    // numericUpDown2
-		    // 
-		    this.numericUpDown2.DecimalPlaces = 1;
-		    this.numericUpDown2.Increment = new decimal(new int[] {
-            5,
-            0,
-            0,
-            65536});
-		    this.numericUpDown2.Location = new System.Drawing.Point(6, 25);
-		    this.numericUpDown2.Name = "numericUpDown2";
-		    this.numericUpDown2.Size = new System.Drawing.Size(57, 20);
-		    this.numericUpDown2.TabIndex = 4;
-		    this.numericUpDown2.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
-		    this.numericUpDown2.Value = new decimal(new int[] {
-            5,
-            0,
-            0,
-            65536});
-		    // 
-		    // notifyIcon1
-		    // 
-		    this.notifyIcon1.Text = "notifyIcon1";
-		    this.notifyIcon1.Visible = true;
-		    // 
-		    // MainForm
-		    // 
-		    this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-		    this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-		    this.ClientSize = new System.Drawing.Size(200, 205);
-		    this.Controls.Add(this.ModifyGroupBox);
-		    this.Controls.Add(this.InfoGroupBox);
-		    this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-		    this.MaximizeBox = false;
-		    this.Name = "MainForm";
-		    this.Text = "TimerTool";
-		    this.Load += new System.EventHandler(this.MainFormLoad);
-		    this.InfoGroupBox.ResumeLayout(false);
-		    this.ModifyGroupBox.ResumeLayout(false);
-		    ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
-		    this.ResumeLayout(false);
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.MaxLabel = new System.Windows.Forms.Label();
+            this.MinLabel = new System.Windows.Forms.Label();
+            this.CurrentLabel = new System.Windows.Forms.Label();
+            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lblWebSite = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.imgCerrar = new System.Windows.Forms.PictureBox();
+            this.imgMinimizar = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgCerrar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgMinimizar)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.Timer1Tick);
+            // 
+            // MaxLabel
+            // 
+            this.MaxLabel.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.MaxLabel.ForeColor = System.Drawing.Color.White;
+            this.MaxLabel.Location = new System.Drawing.Point(46, 245);
+            this.MaxLabel.Name = "MaxLabel";
+            this.MaxLabel.Size = new System.Drawing.Size(100, 20);
+            this.MaxLabel.TabIndex = 3;
+            this.MaxLabel.Text = "0.5 ms";
+            // 
+            // MinLabel
+            // 
+            this.MinLabel.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.MinLabel.ForeColor = System.Drawing.Color.White;
+            this.MinLabel.Location = new System.Drawing.Point(176, 245);
+            this.MinLabel.Name = "MinLabel";
+            this.MinLabel.Size = new System.Drawing.Size(100, 18);
+            this.MinLabel.TabIndex = 2;
+            this.MinLabel.Text = "15.6 ms";
+            // 
+            // CurrentLabel
+            // 
+            this.CurrentLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.CurrentLabel.Font = new System.Drawing.Font("Arial", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.CurrentLabel.ForeColor = System.Drawing.Color.White;
+            this.CurrentLabel.Location = new System.Drawing.Point(12, 99);
+            this.CurrentLabel.Name = "CurrentLabel";
+            this.CurrentLabel.Size = new System.Drawing.Size(520, 55);
+            this.CurrentLabel.TabIndex = 1;
+            this.CurrentLabel.Text = "1.0000 ms";
+            this.CurrentLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.CurrentLabel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.mainForm_MouseDown);
+            this.CurrentLabel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.mainForm_MouseMove);
+            this.CurrentLabel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.mainForm_MouseUp);
+            // 
+            // notifyIcon1
+            // 
+            this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
+            this.notifyIcon1.Text = "notifyIcon1";
+            this.notifyIcon1.Visible = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            this.label1.Location = new System.Drawing.Point(12, 245);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(37, 18);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Min:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            this.label2.Location = new System.Drawing.Point(138, 245);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(41, 18);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Max:";
+            // 
+            // lblWebSite
+            // 
+            this.lblWebSite.AutoSize = true;
+            this.lblWebSite.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.lblWebSite.ForeColor = System.Drawing.Color.White;
+            this.lblWebSite.Location = new System.Drawing.Point(388, 248);
+            this.lblWebSite.Name = "lblWebSite";
+            this.lblWebSite.Size = new System.Drawing.Size(144, 15);
+            this.lblWebSite.TabIndex = 6;
+            this.lblWebSite.Text = "www.remotocreativo.com";
+            this.lblWebSite.Click += new System.EventHandler(this.lblSite_Click);
+            this.lblWebSite.MouseLeave += new System.EventHandler(this.control_MouseLeave);
+            this.lblWebSite.MouseHover += new System.EventHandler(this.control_MouseHover);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(206, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(133, 73);
+            this.pictureBox1.TabIndex = 7;
+            this.pictureBox1.TabStop = false;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
+            this.label4.Location = new System.Drawing.Point(226, 154);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(93, 27);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Current";
+            // 
+            // imgCerrar
+            // 
+            this.imgCerrar.Image = ((System.Drawing.Image)(resources.GetObject("imgCerrar.Image")));
+            this.imgCerrar.Location = new System.Drawing.Point(509, 12);
+            this.imgCerrar.Name = "imgCerrar";
+            this.imgCerrar.Size = new System.Drawing.Size(23, 29);
+            this.imgCerrar.TabIndex = 9;
+            this.imgCerrar.TabStop = false;
+            this.imgCerrar.Click += new System.EventHandler(this.imgCerrar_Click);
+            this.imgCerrar.MouseLeave += new System.EventHandler(this.control_MouseLeave);
+            this.imgCerrar.MouseHover += new System.EventHandler(this.control_MouseHover);
+            // 
+            // imgMinimizar
+            // 
+            this.imgMinimizar.Image = ((System.Drawing.Image)(resources.GetObject("imgMinimizar.Image")));
+            this.imgMinimizar.Location = new System.Drawing.Point(480, 12);
+            this.imgMinimizar.Name = "imgMinimizar";
+            this.imgMinimizar.Size = new System.Drawing.Size(23, 29);
+            this.imgMinimizar.TabIndex = 10;
+            this.imgMinimizar.TabStop = false;
+            this.imgMinimizar.Click += new System.EventHandler(this.imgMinimizar_Click);
+            this.imgMinimizar.MouseLeave += new System.EventHandler(this.control_MouseLeave);
+            this.imgMinimizar.MouseHover += new System.EventHandler(this.control_MouseHover);
+            // 
+            // MainForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(21)))), ((int)(((byte)(21)))));
+            this.ClientSize = new System.Drawing.Size(544, 276);
+            this.Controls.Add(this.imgMinimizar);
+            this.Controls.Add(this.imgCerrar);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.lblWebSite);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.MaxLabel);
+            this.Controls.Add(this.MinLabel);
+            this.Controls.Add(this.CurrentLabel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.Name = "MainForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "CreativOS Pro Gamer";
+            this.Load += new System.EventHandler(this.MainFormLoad);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.mainForm_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.mainForm_MouseMove);
+            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.mainForm_MouseUp);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgCerrar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgMinimizar)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
 
 		}
-		private System.Windows.Forms.Button UnsetTimer;
-		private System.Windows.Forms.NumericUpDown numericUpDown2;
-		private System.Windows.Forms.Label label2;
-		private System.Windows.Forms.Button SetTimerButton;
 		private System.Windows.Forms.Label MinLabel;
 		private System.Windows.Forms.Label MaxLabel;
-		private System.Windows.Forms.GroupBox ModifyGroupBox;
-		private System.Windows.Forms.GroupBox InfoGroupBox;
 		private System.Windows.Forms.Timer timer1;
 		private System.Windows.Forms.Label CurrentLabel;
 		private System.Windows.Forms.NotifyIcon notifyIcon1;
-	}
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblWebSite;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.PictureBox imgCerrar;
+        private System.Windows.Forms.PictureBox imgMinimizar;
+    }
 }

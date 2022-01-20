@@ -10,7 +10,7 @@ using System;
 using System.Runtime.InteropServices;
 using System.Security;
 
-namespace TimerTool
+namespace ProGamer
 {
 	[StructLayout(LayoutKind.Sequential)]
 	public struct TimerCaps

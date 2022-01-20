@@ -12,34 +12,41 @@ using System.Drawing;
 using System.Resources;
 using System.Windows.Forms;
 using System.Globalization;
+using System.Diagnostics;
 
-namespace TimerTool
+namespace ProGamer
 {
 	/// <summary>
 	/// Description of MainForm.
 	/// </summary>
 	public partial class MainForm : Form
 	{
-	    public MainForm(string[] args)
+
+        private bool startMinimized = false;
+        private bool dragging = false;
+        private Point startPoint ;
+        public MainForm(string[] args)
 		{
 			//
 			// The InitializeComponent() call is required for Windows Forms designer support.
 			//
 			InitializeComponent();
 
-            ResourceManager resources = new ResourceManager(typeof(MainForm));
 
+            //ResourceManager resources = new ResourceManager(typeof(MainForm));
             this.Resize += MainForm_Resize;
 
-            notifyIcon1.BalloonTipText = "TimerTool running...";
-            notifyIcon1.BalloonTipTitle = "TimerTool";
+
+            notifyIcon1.BalloonTipTitle = "Pro Gamer";
             notifyIcon1.BalloonTipIcon = ToolTipIcon.Info;
-            notifyIcon1.Text = "TimerTool";
-            notifyIcon1.Icon = (Icon)resources.GetObject("TimerIcon");
+            notifyIcon1.Text = "Pro Gamer";
+        
             notifyIcon1.Click += NotifyIcon1_Click;
+         
+
 
             //apply commandline args
-            allowVisible = true;
+          
             var i = 0;
             foreach(var arg in args)
             {
@@ -58,91 +65,123 @@ namespace TimerTool
 
                 if(arg == "-minimized")
                 {
-                    allowVisible = false;
+                    startMinimized = true;
+
+                 
                 }
 
                 i++;
             }
+            
+      
         }
 
-        private bool allowVisible;     // ContextMenu's Show command used
-        private bool allowClose = true;       // ContextMenu's Exit command used
 
-        protected override void SetVisibleCore(bool value)
-        {
-            if (!allowVisible)
-            {
-                value = false;
-                if (!this.IsHandleCreated) CreateHandle();
-            }
-            base.SetVisibleCore(value);
-        }
 
-        protected override void OnFormClosing(FormClosingEventArgs e)
-        {
-            if (!allowClose)
-            {
-                this.Hide();
-                e.Cancel = true;
-            }
-            base.OnFormClosing(e);
-        }
+  
 
         private void NotifyIcon1_Click(object sender, EventArgs e)
         {
-            allowVisible = true;
-            this.Show();
-            this.WindowState = FormWindowState.Normal;
-            this.ShowInTaskbar = true;
-            notifyIcon1.Visible = false;
+           
+            if (this.WindowState != FormWindowState.Normal)
+            {
+                this.Show();
+                this.WindowState = FormWindowState.Normal;
+                this.ShowInTaskbar = true;
+            }
+            
 
         }
 
         private void MainForm_Resize(object sender, EventArgs e)
         {
-            if (FormWindowState.Minimized == this.WindowState)
+            if (this.WindowState == FormWindowState.Minimized)
             {
-                Minimize();
+                this.ShowInTaskbar = false;
+                notifyIcon1.Visible = true;
             }
-            else if (FormWindowState.Normal == this.WindowState)
-            {
+            else
                 notifyIcon1.Visible = false;
-            }
+           
         }
 
-        private void Minimize()
-        {
-            notifyIcon1.Visible = true;
-            notifyIcon1.ShowBalloonTip(250);
-            this.Hide();
-        }
+
+
+
 
         void MainFormLoad(object sender, EventArgs e)
 		{
-			DisplayTimerCaps();
+            this.WindowState =startMinimized? FormWindowState.Minimized:FormWindowState.Normal;
+
+            DisplayTimerCaps();
 		}
+
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            ControlPaint.DrawBorder(e.Graphics, ClientRectangle, Color.Red, ButtonBorderStyle.Solid);
+        }
 
         private void DisplayTimerCaps()
 		{
 			var caps = WinApiCalls.QueryTimerResolution();
-			CurrentLabel.Text = "Current: " + (caps.PeriodCurrent/10000.0) + " ms";
-			MinLabel.Text = "Max: " + (caps.PeriodMin/10000.0) + " ms";
-			MaxLabel.Text = "Min: " + (caps.PeriodMax/10000.0) + " ms";
+			CurrentLabel.Text =  (caps.PeriodCurrent/10000.0) + " ms";
+			MinLabel.Text = (caps.PeriodMin/10000.0) + " ms";
+			MaxLabel.Text = (caps.PeriodMax/10000.0) + " ms";
 		}
 		
 		void Timer1Tick(object sender, EventArgs e)
 		{
 			DisplayTimerCaps();
 		}
-		
-		void SetTimerButtonClick(object sender, EventArgs e)
-		{
-			WinApiCalls.SetTimerResolution((uint)(numericUpDown2.Value * 10000));
-		}
-		
-		void UnsetTimerClick(object sender, EventArgs e)
-		{
-			WinApiCalls.SetTimerResolution(0, false);
-		}
-	}
+
+        private void lblSite_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://www.remotocreativo.com");
+        }
+
+     
+
+        private void control_MouseHover(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.Hand;
+        }
+
+        private void control_MouseLeave(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.Default;
+        }
+
+        private void imgCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void imgMinimizar_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void mainForm_MouseDown(object sender, MouseEventArgs e)
+        {
+            dragging = true;
+            startPoint = new Point(e.X, e.Y);
+
+        }
+
+        private void mainForm_MouseUp(object sender, MouseEventArgs e)
+        {
+            dragging = false;
+        }
+
+        private void mainForm_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (dragging)
+            {
+                Point p = PointToScreen(e.Location);
+                Location = new Point(p.X - this.startPoint.X, p.Y - this.startPoint.Y);
+
+            }
+
+        }
+    }
 }
