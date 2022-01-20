@@ -98,6 +98,7 @@ namespace ProGamer
             if (this.WindowState == FormWindowState.Minimized)
             {
                 this.ShowInTaskbar = false;
+                this.Hide();
                 notifyIcon1.Visible = true;
             }
             else
